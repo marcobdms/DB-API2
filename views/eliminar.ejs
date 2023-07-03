@@ -1,4 +1,4 @@
-<!-- views/editar.ejs -->
+views/editar.ejs
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,7 @@
 </head>
 <body>
   <h1>Editar Usuario</h1>
-  <form action="/eliminar/<%= usuario.id %>" method="post">
+  <form action="/eliminar/<%= productos.id %>" method="post">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" value="<%= usuario.nombre %>" required>
     <br>

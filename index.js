@@ -15,7 +15,11 @@ app.get('/', (req, res) => {
     res.render('home');
   });
 
-// Obtener todos los usuarios
+
+// ================================ TABLA PRODUCTOS ================================ //
+
+
+// Obtener todos los productos
 app.get('/listarproductos', (req, res) => {
   db.query('SELECT * FROM productos', (error, results) => {
     if (error) throw error;
@@ -23,48 +27,66 @@ app.get('/listarproductos', (req, res) => {
   });
 });
 
-// Mostrar formulario para agregar un usuario
-app.get('/agregar', (req, res) => {
-  res.render('agregar');
-});
-
-// Agregar un usuario a la base de datos
-app.post('/agregar', (req, res) => {
-  const { nombre, correo } = req.body;
-  db.query('INSERT INTO usuarios SET ?', { nombre, correo }, (error, result) => {
+app.get('/listarfabricantes', (req, res) => {
+  db.query('SELECT * FROM fabricantes', (error, results) => {
     if (error) throw error;
-    res.redirect('/');
+    res.render('listarfabricantes', { fabricantes: results });
   });
 });
 
-// Mostrar formulario para editar un usuario
-app.get('/editar/:id', (req, res) => {
-  const id = req.params.id;
-  db.query('SELECT * FROM usuarios WHERE id = ?', id, (error, result) => {
+app.get('/listarcategorias', (req, res) => {
+  db.query('SELECT * FROM categorias', (error, results) => {
     if (error) throw error;
-    res.render('editar', { usuario: result[0] });
+    res.render('listarcategorias', { categorias: results });
   });
 });
 
-// Actualizar un usuario en la base de datos
-app.post('/editar/:id', (req, res) => {
-  const id = req.params.id;
-  const { nombre, correo } = req.body;
-  db.query('UPDATE usuarios SET nombre = ?, correo = ? WHERE id = ?', [nombre, correo, id], (error, result) => {
+// Mostrar formulario para agregar un producto
+app.get('/agregarproducto', (req, res) => {
+  res.render('agregarproducto');
+});
+
+// Agregar un producto a la base de datos
+app.post('/agregarproducto', (req, res) => {
+  const { nombre, precio, stock } = req.body;
+  db.query('INSERT INTO productos SET ?', { nombre, precio, stock }, (error, result) => {
     if (error) throw error;
-    res.redirect('/');
+    res.redirect('/listarproductos');
   });
 });
 
-// Eliminar un usuario de la base de datos
-app.get('/eliminar/:id', (req, res) => {
+// Mostrar formulario para editar un producto
+app.get('/editarproducto/:id', (req, res) => {
   const id = req.params.id;
-  db.query('DELETE FROM usuarios WHERE id = ?', id, (error, result) => {
+  db.query('SELECT * FROM productos WHERE id = ?', id, (error, result) => {
     if (error) throw error;
-    res.redirect('/');
+    res.render('/editarproducto', { productos: result[0] });
+  });
+});
+
+// Actualizar un producto en la base de datos
+app.post('/editarproducto/:id', (req, res) => {
+  const id = req.params.id;
+  const { nombre, precio, stock } = req.body;
+  db.query('UPDATE productos SET nombre = ?, precio = ?, stock = ? WHERE id = ?', [nombre, precio, stock, id], (error, result) => {
+    if (error) throw error;
+    res.redirect('/listarproductos');
+  });
+});
+
+// Eliminar un producto de la base de datos
+app.get('/eliminarproducto/:id', (req, res) => {
+  const id = req.params.id;
+  db.query('DELETE FROM productos WHERE id = ?', id, (error, result) => {
+    if (error) throw error;
+    res.redirect('/listarproductos');
   });
 });
 
 app.listen(port, () => {
   console.log(`App running on http://localhost:${port}`);
 });
+
+
+// ================================ TABLA FABRICANTES ================================ //
+

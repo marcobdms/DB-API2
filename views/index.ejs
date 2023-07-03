@@ -3,12 +3,12 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Usuarios</title>
+  <title>Productos</title>
   <link rel="stylesheet" type="text/css" href="/styles.css">
 
 </head>
 <body>
-  <h1>Usuarios</h1>
+  <h1>Productos</h1>
   <table>
     <tr>
       <th>Producto</th>
@@ -17,14 +17,14 @@
       <th>Acciones</th>
       <th>Eliminar</th>
     </tr>
-    <% usuarios.forEach(usuario => { %>
+    <% productos.forEach(productos => { %>
       <tr>
-        <td><%= usuario.id %></td>
-        <td><%= usuario.nombre %></td>
-        <td><%= usuario.correo %></td>
+        <td><%= productos.id %></td>
+        <td><%= productos.nombre %></td>
+        <td><%= productos.correo %></td>
         <td>
-          <a href="/editar/<%= usuario.id %>">Editar</a>
-          <a href="/eliminar/<%= usuario.id %>">Eliminar</a>
+          <a href="/editar/<%= productos.id %>">Editar</a>
+          <a href="/eliminar/<%= productos.id %>">Eliminar</a>
         </td>
       </tr>
     <% }) %>
