@@ -17,14 +17,15 @@
     <% fabricantes.forEach(fabricantes => { %>
       <tr>
         <td><%= fabricantes.id %></td>
-        <td><%= fabricantes.nombre %></td>
+        <td><%= fabricantes.Nombre %></td>
         <td>
-          <a href="/editar/<%= fabricantes.id %>">Editar</a>
-          <a href="/eliminar/<%= fabricantes.id %>">Eliminar</a>
+          <a href="/editarfabricante/<%= fabricantes.id %>">Editar</a>
+          <a href="/eliminarfabricante/<%= fabricantes.id %>">Eliminar</a>
         </td>
       </tr>
     <% }) %>
   </table>
-  <a href="/agregar">Agregar usuario</a>
+  <a href="/agregarfabricante">Agregar fabricante</a>
+  <a href="/">HOME</a>
 </body>
 </html>

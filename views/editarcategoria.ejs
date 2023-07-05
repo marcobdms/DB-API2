@@ -1,0 +1,19 @@
+<!-- views/editar.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Categoria</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+
+</head>
+<body>
+  <h1>Editar Categoria</h1>
+  <form action="/editarcategoria/<%= categoria.id %>" method="post">
+    <label for="Nombre">Nombre:</label>
+    <input type="text" id="Nombre" name="Nombre" value="<%= categoria.Nombre %>" required>
+    <br>
+    <input type="submit" value="Guardar">
+  </form>
+</body>
+</html>

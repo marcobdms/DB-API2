@@ -1,0 +1,19 @@
+<!-- views/editar.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Producto</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+
+</head>
+<body>
+  <h1>Editar Fabricante</h1>
+  <form action="/editarfabricante/<%= fabricante.id %>" method="post">
+    <label for="Nombre">Nombre:</label>
+    <input type="text" id="Nombre" name="Nombre" value="<%= fabricante.Nombre %>" required>
+    <br>
+    <input type="submit" value="Guardar">
+  </form>
+</body>
+</html>

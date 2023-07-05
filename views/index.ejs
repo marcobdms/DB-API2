@@ -20,8 +20,9 @@
     <% productos.forEach(productos => { %>
       <tr>
         <td><%= productos.id %></td>
-        <td><%= productos.nombre %></td>
-        <td><%= productos.correo %></td>
+        <td><%= productos.Nombre %></td>
+        <td><%= productos.Precio %></td>
+        <td><%= productos.Stock %></td>
         <td>
           <a href="/editar/<%= productos.id %>">Editar</a>
           <a href="/eliminar/<%= productos.id %>">Eliminar</a>

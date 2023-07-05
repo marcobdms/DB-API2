@@ -8,7 +8,7 @@
 
 </head>
 <body>
-  <h1>productos</h1>
+  <h1>Productos</h1>
   <table>
     <tr>
       <th>ID</th>
@@ -20,16 +20,19 @@
     <% productos.forEach(producto => { %>
       <tr>
         <td><%= producto.id %></td>
-        <td><%= producto.nombre %></td>
-        <td><%= producto.precio %></td>
-        <td><%= producto.stock %></td>
+        <td><%= producto.Nombre %></td>
+        <td><%= producto.Precio %></td>
+        <td><%= producto.Stock %></td>
         <td>
-          <a href="/editarproducto/<%= producto.id %>">Editar</a>
-          <a href="/eliminarproducto/<%= producto.id %>">Eliminar</a>
+          <a href="/editarproductos/<%= producto.id %>">Editar</a>
+          <a href="/eliminarproductos/<%= producto.id %>">Eliminar</a>
         </td>
       </tr>
     <% }) %>
   </table>
+  <br>
   <a href="/agregarproducto">Agregar usuario</a>
+  <br><br><br>
+  <a href="/">HOME</a>
 </body>
 </html>

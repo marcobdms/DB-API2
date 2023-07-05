@@ -17,14 +17,16 @@
     <% categorias.forEach(categorias => { %>
       <tr>
         <td><%= categorias.id %></td>
-        <td><%= categorias.nombre %></td>
+        <td><%= categorias.Nombre %></td>
         <td>
-          <a href="/editar/<%= categorias.id %>">Editar</a>
-          <a href="/eliminar/<%= categorias.id %>">Eliminar</a>
+          <a href="/editarcategoria/<%= categorias.id %>">Editar</a>
+          <a href="/eliminarcategoria/<%= categorias.id %>">Eliminar</a>
         </td>
       </tr>
     <% }) %>
   </table>
-  <a href="/agregar">Agregar usuario</a>
+  <a href="/agregarcategoria">Agregar categoria</a>
+  <br><br><br>
+  <a href="/">HOME</a>
 </body>
 </html>
