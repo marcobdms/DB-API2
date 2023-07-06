@@ -69,9 +69,19 @@ app.get('/eliminarproductos/:id', (req, res) => {
   });
 });
 
+//  ordenar por precio
+app.get('/ordenarprecios/:id', (req, res) => {
+  const id = req.params.id;
+  db.query('SELECT * FROM productos WHERE id = ? ORDER BY precio ASC', id, (error, result) => {
+    if (error) throw error;
+    res.render('editarproductos', { producto: result[0] });
+  });
+});
+
 app.listen(port, () => {
   console.log(`App running on http://localhost:${port}`);
 });
+
 
 
 // ================================ TABLA FABRICANTES ================================ //
